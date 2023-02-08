@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Nanum+Gothic&family=Permanent+Marker&display=swap');*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Nanum Gothic';
+}
+body{
+    background-color: rgb(58 19 112 / 31%);
+}
+button{cursor: pointer;}
+.wrap{
+    width: 700px;
+    background-color: #f9f9f9;
+    margin: 100px auto;
+    text-align: center;
+}
+.todo_title{
+    font-size: 50px;
+    font-family: 'Permanent Marker', cursive;
+    color:#55188da8;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.todo_box{
+    width: 530px;
+    margin: 0 auto;
+    border: 1px solid #a492b570;
+    background-color: white;
+    text-align: left;
+    padding: 0 30px ;
+    box-sizing: border-box;
+}
+.input_box{
+    border-bottom: 1px solid #a492b570;
+}
+.input_box > input{
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+.list_box{
+    height: 45px;
+    border-bottom: 1px solid #a492b570;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.name_active{
+    text-decoration: line-through;
+    color: #d5d0df;
+    font-style: italic;
+}
+.list_box:last-child{
+    border:none;
+}
+.check_box {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #9855d770;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.list_name{
+    font-weight: 600;
+    width: 380px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.list_box:last-child{
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+.list_button > button{
+    border: 2px solid #eeeeee;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-weight: 600;
+}
+#button_active{
+    border: 2px solid #bfb5d0;
+}
+.todo_info{
+    padding: 30px 0 50px;
+    box-sizing: border-box;
+    color: #d5d0df;
+    font-weight: 600;
+}
