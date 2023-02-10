@@ -16,34 +16,42 @@ button{cursor: pointer;}
     background-color: #f9f9f9;
     margin: 100px auto;
     text-align: center;
+    padding: 50px;
+    box-sizing: border-box;
 }
 .todo_title{
     font-size: 50px;
     font-family: 'Permanent Marker', cursive;
     color:#55188da8;
-    padding: 20px 0;
+    padding-bottom: 40px;
     box-sizing: border-box;
 }
 .todo_box{
     width: 530px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     border: 1px solid #a492b570;
+    border-bottom: none;
     background-color: white;
     text-align: left;
-    padding: 0 30px ;
     box-sizing: border-box;
+    padding: 10px 30px 50px;
 }
 .input_box{
     border-bottom: 1px solid #a492b570;
 }
 .input_box > input{
     height: 45px;
-    width: 300px;
+    width: 439px;
     font-size: 18px;
     font-weight: 600;
-    padding-left: 100px;
+    padding-left: 10px;
     box-sizing: border-box;
 }
+.input_box > button{
+    float: right;
+    line-height: 45px;
+}
+.list_box:first-child{border-top: 1px solid #a492b570;}
 .list_box{
     height: 45px;
     border-bottom: 1px solid #a492b570;
@@ -56,9 +64,9 @@ button{cursor: pointer;}
     color: #d5d0df;
     font-style: italic;
 }
-.list_box:last-child{
+/* .list_box:last-child{
     border:none;
-}
+} */
 .check_box {
     width: 20px;
     height: 20px;
@@ -67,6 +75,7 @@ button{cursor: pointer;}
     margin-right: 10px;
     font-size: 13px;
 }
+
 
 .list_name{
     font-weight: 600;
@@ -95,4 +104,17 @@ button{cursor: pointer;}
     box-sizing: border-box;
     color: #d5d0df;
     font-weight: 600;
+}
+
+.list_menu{
+    width: 530px;
+    background: white;
+    margin: 0 auto;
+    border: 1px solid #a492b570;
+    border-top: none;
+    display: flex;
+    /* background: pink; */
+    height: 55px;
+    justify-content: space-evenly;
+    align-items: center;
 }

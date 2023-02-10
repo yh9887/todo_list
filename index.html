@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todolist</title>
     <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
 </head>
 <body>
-    <div class="wrap">
+
+    
+    <form class="wrap">
         <div class="todo_title">todos</div>
         <div class="todo_box">
             <div class="input_box">
+                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" required minlength="1">
                 <button>✔️</button>
-                <input type="text" placeholder="해야 할 일을 입력해주세요.">
             </div>
-            <div class="list_box">
+            <!-- <div class="list_box">
                 <button class="check_box">✔️</button>
                 <div class="list_name name_active">첫번째 할 일</div>
                 <button class="list_delete">❌</button>
@@ -29,8 +32,8 @@
                 <button class="check_box"></button>
                 <div class="list_name">세번째 할 일</div>
                 <button class="list_delete">❌</button>
-            </div>
-            <div class="list_box">
+            </div> -->
+            <!-- <div class="list_box">
                 <div class="list_count">3 items left</div>
                 <div class="list_button">
                     <button id="button_active">All</button>
@@ -38,9 +41,18 @@
                     <button>Completed</button>
                 </div>
                 <div class="list_clear">Clear Completed</div>
-            </div>
+            </div> -->
         </div>
-        <p class="todo_info">더블클릭 시 수정 가능!</p>
-    </div>
+        <!-- <div class="list_menu">
+            <div class="list_count">3 items left</div>
+            <div class="list_button">
+                <button id="button_active">All</button>
+                <button>Active</button>
+                <button>Completed</button>
+            </div>
+            <div class="list_clear">Clear Completed</div>
+        </div> -->
+        <!-- <p class="todo_info">더블클릭 시 수정 가능!</p> -->
+    </form>
 </body>
 </html>
