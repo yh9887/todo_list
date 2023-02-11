@@ -99,6 +99,7 @@ button{cursor: pointer;}
 #button_active{
     border: 2px solid #bfb5d0;
 }
+.list_clear{cursor: pointer;}
 .todo_info{
     padding: 30px 0 50px;
     box-sizing: border-box;

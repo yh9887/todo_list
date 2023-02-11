@@ -11,11 +11,12 @@
 <body>
 
     
-    <form class="wrap">
+    <form class="wrap" onsubmit="return false;">
         <div class="todo_title">todos</div>
         <div class="todo_box"> 
             <div class="input_box">
-                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" required minlength="1">
+                <input type="checkbox" id="allCheckBox" onchange="allCheckHandler()">
+                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" onkeyup="if(window.event.keyCode==13){addTodo()}"/>
                 <button type="reset">✔️</button>
             </div>
 
@@ -29,11 +30,11 @@
         <div class="list_menu">
             <div class="list_count">0 items left</div>
             <div class="list_button">
-                <button id="button_active">All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button id="button_active" type="button" onclick="countHandler('All')">All</button>
+                <button type="button" onclick="countHandler('Active')">Active</button>
+                <button type="button" onclick="countHandler('Completed')">Completed</button>
             </div>
-            <div class="list_clear">Clear Completed</div>
+            <div class="list_clear" onclick="clearHandler()">Clear Completed</div>
         </div>
         <p class="todo_info">더블클릭 시 수정 가능!</p>
     </form>
