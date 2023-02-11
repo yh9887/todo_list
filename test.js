@@ -7,6 +7,7 @@ let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
 
 function addTodo() {
     let inputValue = document.getElementById('todoInput').value;
+    if(inputValue){
     const rand = Math.floor(Math.random() * 999999);
     toDos.push({
         id: rand,
@@ -14,6 +15,7 @@ function addTodo() {
         status: false
     });
     localStorage.setItem("TODOS", JSON.stringify(toDos));
+
 
 
     const todoBox = document.querySelector('.todo_box');
@@ -54,6 +56,7 @@ function addTodo() {
     todoList.appendChild(checkBox);
     todoList.appendChild(ListName);
     todoList.appendChild(ListDel);
+}
 }
 
 function delTodo(rand) {
@@ -119,6 +122,7 @@ function getTodo() {
         todoList.appendChild(checkBox);
         todoList.appendChild(ListName);
         todoList.appendChild(ListDel);
+        
     })
 }
 
