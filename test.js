@@ -3,29 +3,33 @@ const todoList = document.querySelector('.todo_list');
 // localStorage에 "TODOS" 키 값이 있으면 todos에 넣어주고 없으면 빈 배열로 todos 생성
 // || [] ; 가 없으면 처음에 빈 배열일 경우 오류 발생함
 let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
+
 function delTodo(e){
+    // 화면에서 지워주는 작업
     const todoDel = e.target.parentNode;
     todoDel.remove();
-    localStorage.setItem("TODOS", )
+    // 로컬스토리지에서 지워주는 작업 중 // 
 }
 function addTodo() {
     if (todoInput.value.length > 0) {
+        const todoId = Math.random() * 999999;
         // toDos 배열에 값 넣어주기
         toDos.push({
             value:todoInput.value,
+            id: todoId,
         })
         // 로컬스토리지에 toDos 배열 문자열로 넣어주기
         localStorage.setItem('TODOS', JSON.stringify(toDos));
-        paintTodo(todoInput.value)
-    
+        paintTodo(todoInput.value);
     }
     localStorage.setItem('TODOS', JSON.stringify(toDos));
     todoInput.value="";
 }
 function getTodo(){
     toDos.forEach((toDo)=>{
+        
         if(toDo.value !==null){
-            paintTodo(toDo.value)
+            paintTodo(toDo.value);
         }
     })
 }
@@ -46,6 +50,7 @@ function paintTodo(todoInputValue){
         const ListDel = document.createElement('button');
         ListDel.setAttribute('type', 'button')
         ListDel.innerText = "❌";
+        ListDel.addEventListener('click', delTodo);
 
         todoList.appendChild(todoListBox);
         todoListBox.appendChild(checkBox);
