@@ -17,8 +17,8 @@
         <div class="todo_box">
             <div class="input_box">
                 <input type="checkbox" id="allCheckBox" class="check_box">
-                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput">
-                <button onclick="addTodo()">✔️</button>
+                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" minlength="1" onkeyup="if(window.event.keyCode==13){addTodo()}">
+                <button type="reset" onclick="addTodo()" >✔️</button>
             </div>
             <div class="todo_list"></div>
         </div>
