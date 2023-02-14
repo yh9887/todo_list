@@ -27,7 +27,7 @@ button {
     box-sizing: border-box;
 }
 
-.title {
+.todo_title {
     font-size: 50px;
     font-family: "Permanent Marker", cursive;
     color: #55188da8;
@@ -35,7 +35,7 @@ button {
     box-sizing: border-box;
 }
 
-.container {
+.todo_box {
     width: 530px;
     margin: 0 auto;
     border: 1px solid #a492b570;
@@ -46,7 +46,7 @@ button {
     padding: 10px 30px 50px;
 }
 
-.header_box {
+.input_box {
     height: 45px;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@ button {
     border-bottom: 1px solid #a492b570;
 }
 
-.header_box>input {
+.input_box>input {
     height: 45px;
     width: 439px;
     font-size: 18px;
@@ -63,7 +63,7 @@ button {
     box-sizing: border-box;
 }
 
-.header_box>button {
+.input_box>button {
     float: right;
     line-height: 45px;
 }
@@ -103,6 +103,7 @@ button {
     width: 380px;
     box-sizing: border-box;
     text-align: left;
+    cursor: pointer;
 }
 
 /* .list_box:last-child {
@@ -111,7 +112,7 @@ button {
   display: flex;
   justify-content: space-between;
 } */
-.footer_button_box>button {
+.list_button>button {
     border: 2px solid #eeeeee;
     padding: 5px 10px;
     box-sizing: border-box;
@@ -119,7 +120,7 @@ button {
     font-weight: 600;
 }
 
-#active_button {
+#button_active {
     border: 2px solid #bfb5d0;
 }
 
@@ -130,7 +131,7 @@ button {
     font-weight: 600;
 }
 
-.footer {
+.list_menu {
     width: 530px;
     background: white;
     margin: 0 auto;
@@ -143,7 +144,7 @@ button {
     align-items: center;
 }
 
-/* #todo_input {
+/* #todoInput {
   font-weight: 600;
   width: 380px;
   box-sizing: border-box;

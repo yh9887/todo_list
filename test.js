@@ -8,11 +8,19 @@ function delTodo(e){
     // 화면에서 지워주는 작업
     const todoDel = e.target.parentNode;
     todoDel.remove();
-    // 로컬스토리지에서 지워주는 작업 중 // 
+    // 로컬스토리지에서 지워주는 작업 중
+    // filter 쓸 때 주의사항 !!!!! 
+    // 중괄호 > return 써줘야함 , 안쓰면 자동 return!
+    const newTodos = toDos.filter((toDo)=>
+        parseInt(todoDel.id) !== toDo.id
+    )
+    toDos = newTodos;
+    localStorage.setItem('TODOS', JSON.stringify(newTodos));
+
 }
 function addTodo() {
     if (todoInput.value.length > 0) {
-        const todoId = Math.random() * 999999;
+        const todoId = Math.floor(Math.random() * 999999);
         // toDos 배열에 값 넣어주기
         toDos.push({
             value:todoInput.value,
@@ -20,7 +28,7 @@ function addTodo() {
         })
         // 로컬스토리지에 toDos 배열 문자열로 넣어주기
         localStorage.setItem('TODOS', JSON.stringify(toDos));
-        paintTodo(todoInput.value);
+        paintTodo(todoInput.value, todoId);
     }
     localStorage.setItem('TODOS', JSON.stringify(toDos));
     todoInput.value="";
@@ -29,14 +37,15 @@ function getTodo(){
     toDos.forEach((toDo)=>{
         
         if(toDo.value !==null){
-            paintTodo(toDo.value);
+            paintTodo(toDo.value, toDo.id);
         }
     })
 }
-function paintTodo(todoInputValue){
+function paintTodo(todoInputValue, todoId){
         // 화면에 요소 그려주기
         const todoListBox = document.createElement('div');
         todoListBox.setAttribute('class', 'list_box');
+        todoListBox.setAttribute('id', todoId);
 
         const checkBox = document.createElement('input');
         checkBox.setAttribute('class', 'check_box');

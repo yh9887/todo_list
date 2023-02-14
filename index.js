@@ -1,4 +1,4 @@
-const todoInputBox = document.querySelector(".input_box button");
+const todoInputBox = document.querySelector(".header_box button");
 
 let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
 
