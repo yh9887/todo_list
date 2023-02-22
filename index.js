@@ -6,6 +6,8 @@ function valueChangeHandler(toDoId, toDoValue){
     const todoValueElement = document.getElementsByClassName(toDoId)[0];
     todoValueElement.disabled = true;
     
+    console.log("🚀 ~ file: index.js:11 ~ newTodos ~ toDoId", toDoId)
+    console.log("🚀 ~ file: index.js:11 ~ newTodos ~ toDo.id", toDo.id)
     const newTodos = toDos.map((toDo)=> {
         if(toDo.id == toDoId){
             toDo.value = toDoValue;
@@ -13,7 +15,7 @@ function valueChangeHandler(toDoId, toDoValue){
     })
     
     toDos = newTodos;
-    localStorage.setItem("TODOS", JSON.stringify(newTodos))
+    localStorage.setItem("TODOS", JSON.stringify(newTodos));
 }
 
 function updeteHandler(toDoId){

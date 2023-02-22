@@ -16,6 +16,7 @@
 
         <div class="todo_box">
             <div class="input_box">
+                <!-- <input type="checkbox" id="allCheckBox" class="check_box" onclick="allCheck(this)"> -->
                 <input type="checkbox" id="allCheckBox" class="check_box">
                 <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" minlength="1" onkeyup="if(window.event.keyCode==13){addTodo()}">
                 <button type="reset" onclick="addTodo()" >✔️</button>
@@ -24,16 +25,12 @@
         </div>
         <div class="list_menu">
             <div class="list_count">0 items left</div>
-            <div class="list_button">
-                <button id="button_active" type="button">
-                    All
-                </button>
-                <button type="button">Active</button>
-                <button type="button">
-                    Completed
-                </button>
+            <div >
+                <button class="list_button button_active" id="All" type="button" onclick="listCheckBtn(`All`)">All</button>
+                <button class="list_button" id="Active" type="button" onclick="listCheckBtn(`Active`)">Active</button>
+                <button class="list_button" id="Completed" type="button" onclick="listCheckBtn(`Completed`)">Completed</button>
             </div>
-            <div class="list_clear" >Clear Completed</div>
+            <div class="list_clear" onclick="listClearBtn()">Clear Completed</div>
         </div>
         <p class="todo_info">더블클릭 시 수정 가능!</p>
     </form>

@@ -279,7 +279,7 @@ function allCheckHandler() {
     toDo.status = allCheckBoxValue;
     document.getElementById(toDo.id).checked = allCheckBoxValue;
     if (toDo.status) {
-      document.getElementsByClassName(
+      document.getElementsByClassName(cked
         toDo.id
       )[0].className = `${toDo.id} list_name name_active`;
     } else {
@@ -294,3 +294,6 @@ function allCheckHandler() {
 addButton.addEventListener("click", addTodo);
 // todos에 값이 있는 경우에만 getTodo 함수 실행
 if (todos.length > 0) getTodo();
+
+
+
