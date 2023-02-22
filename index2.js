@@ -279,8 +279,7 @@ function allCheckHandler() {
     toDo.status = allCheckBoxValue;
     document.getElementById(toDo.id).checked = allCheckBoxValue;
     if (toDo.status) {
-      document.getElementsByClassName(cked
-        toDo.id
+      document.getElementsByClassName(toDo.id
       )[0].className = `${toDo.id} list_name name_active`;
     } else {
       document.getElementsByClassName(

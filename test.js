@@ -5,10 +5,29 @@ const todoList = document.querySelector('.todo_list');
 // || [] ; 가 없으면 처음에 빈 배열일 경우 오류 발생함
 let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
 
-// function listChange(todoInputValue, todoId){
-//     console.log(todoId)
-// }
+function listAllCheck(todoId,todoChecked){
+    const checkboxes = document.getElementsByName('check');
+    // 로컬스토리지에 체크 저장하기
+    toDos.map((toDo)=> {
+        toDo.status = todoChecked;
+        if (toDo.id == todoId) {
+            toDo.status = todoChecked;
+        }
+    });
+    // 화면에서 체크해주기
+    checkboxes.forEach((checkbox) => {
+    checkbox.checked = todoChecked;
+    });
 
+    localStorage.setItem("TODOS", JSON.stringify(toDos))
+}
+function listChange(todoId, todoInputValue){
+    toDos.map((toDo) => {
+        if(toDo.id == todoId)
+        toDo.value = todoInputValue
+    })
+    localStorage.setItem("TODOS", JSON.stringify(toDos))
+}
 function listClearBtn(){ 
         // 체크가 되지 않은 것만 새로운 배열에 담음
         // 여기서 왜 map안되는지?
@@ -45,21 +64,34 @@ function listCheckBtn(type) {
         allBtn.classList.add(BUTTON_ACTIVE);
         activeBtn.classList.remove(BUTTON_ACTIVE);
         comBtn.classList.remove(BUTTON_ACTIVE);
-            // for ( let i = 0; i < todoArr.length; i++ ) {
-            //     nameActive[i].style.display = 'flex';
-            //     nameNone[i].style.display = 'flex';
-            // }
-            nameNone.className = 'hidden'
+        for ( let i = 0; i < nameNone.length; i++ ) {
+            nameNone[i].style.display = 'flex';
+        }
+        for ( let i = 0; i < nameActive.length; i++ ) {
+            nameActive[i].style.display = 'flex';
+        }
     } else if (type == "Active") {
-        todoArr = toDos.filter((toDo) => toDo.status == false);
+        todoArr = toDos.filter((toDo) => toDo.status === false);
         activeBtn.classList.add(BUTTON_ACTIVE);
         allBtn.classList.remove(BUTTON_ACTIVE);
         comBtn.classList.remove(BUTTON_ACTIVE);
-    } else if (type == "Completed") {
-        todoArr = toDos.filter((toDo) => toDo.status == true);
+            for ( let i = 0; i < nameNone.length; i++ ) {
+                nameNone[i].style.display = 'flex';
+            }
+            for ( let i = 0; i < nameActive.length; i++ ) {
+                nameActive[i].style.display = 'none';
+            }
+        } else if (type == "Completed") {
+        todoArr = toDos.filter((toDo) => toDo.status === true);
         comBtn.classList.add(BUTTON_ACTIVE);
         allBtn.classList.remove(BUTTON_ACTIVE);
         activeBtn.classList.remove(BUTTON_ACTIVE);
+            for ( let i = 0; i < nameNone.length; i++ ) {
+                nameNone[i].style.display = 'none';
+            }
+            for ( let i = 0; i < nameActive.length; i++ ) {
+                nameActive[i].style.display = 'flex';
+            }
     }
     listCount.innerText = `${todoArr.length} items left`;
 
@@ -112,6 +144,16 @@ function getTodo() {
 }
 function paintTodo(todoInputValue, todoId, todoChecked) {
     // 화면에 요소 그려주기
+    const allCheckBtn = document.getElementById('allCheckBox');
+    allCheckBtn.addEventListener('click',function(e){
+        listAllCheck(todoId, e.target.checked);
+        if (e.target.checked) {
+            ListName.classList.add('name_active');
+        } else {
+            ListName.classList.remove('name_active');
+        } 
+    })
+
     const todoListBox = document.createElement('div');
     todoListBox.setAttribute('class', 'list_box');
     todoListBox.setAttribute('id', todoId);
@@ -122,6 +164,7 @@ function paintTodo(todoInputValue, todoId, todoChecked) {
     const checkBox = document.createElement('input');
     checkBox.setAttribute('class', 'check_box');
     checkBox.setAttribute('type', 'checkbox');
+    checkBox.setAttribute('name', 'check');
     checkBox.setAttribute('id', todoId);
     if (todoChecked) {
         // todo의 체크 상태가 true이면 input checkbox를 체크된 상태로 설정
@@ -147,7 +190,7 @@ function paintTodo(todoInputValue, todoId, todoChecked) {
             ListName.classList.add('name_active');
         } else {
             ListName.classList.remove('name_active');
-        }
+        } 
     });
 
 
@@ -164,8 +207,9 @@ function paintTodo(todoInputValue, todoId, todoChecked) {
         // todo 상태가 false이면 밑줄을 지우기 위해 name_active class를 지워줌
         ListName.setAttribute("class", `list_name ${todoId}`);
     }
-    // ListName.addEventListener('blur',()=> listChange(todoId, todoInputValue)); 
-
+    ListName.addEventListener('blur', (e)=>{
+        listChange(todoId, e.target.value)
+    })
 
     const ListDel = document.createElement('button');
     ListDel.setAttribute('type', 'button')
