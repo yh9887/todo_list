@@ -6,13 +6,34 @@ let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
 function listPopup(e){
     const listBtn = document.querySelectorAll('.list_button');
     const type = e.innerText;
+    const activeCheck = document.querySelectorAll('.active_check');
+    const noneCheck = document.querySelectorAll('.none_check');
+
     for(let i = 0; i <listBtn.length; i++){
         listBtn[i].classList.remove('button_active');
     }
     e.classList.add('button_active');
 
-    
+    let arr = [];
+    arr = type == "All" ? toDos : toDos.filter((toDo) =>
+        arr = type == "Active" ? toDo.status === false : arr =  toDo.status === true
+    );
 
+    for(let i=0; i<noneCheck.length; i++){
+        if(type == "All" || type == "Active"){
+            noneCheck[i].style.display = "flex";
+        }else if(type == "Completed"){
+            noneCheck[i].style.display = "none";
+        }
+    }
+    for(let i=0; i<activeCheck.length; i++){
+        if(type == "All" || type == "Completed"){
+            activeCheck[i].style.display = "flex";
+        }else if(type == "Active"){
+            activeCheck[i].style.display = "none";
+        }
+    }
+    document.querySelector('.list_count').innerText = `${arr.length} items left`;
 }
 /** 완료된 할 일 지우는 함수 */
 function listClear(){
@@ -127,6 +148,9 @@ function paintTodo(todoValue, todoId, todoChecked){
     if (todoChecked) {
         checkBox.setAttribute("checked", true);
         listName.classList.add('name_active');
+        listBox.className ='list_box active_check';
+    }else{
+        listBox.className ='list_box none_check';
     }
     
     checkBox.addEventListener('click', function(e){
@@ -142,10 +166,10 @@ function paintTodo(todoValue, todoId, todoChecked){
         })
         localStorage.setItem("TODOS", JSON.stringify(toDos))
         if(e.target.checked){
-            listName.classList.add('name_active')
-        }
-        else{
-            listName.classList.remove('name_active')
+            listBox.className ='list_box active_check'
+            listName.classList.add('name_active');
+        }else{
+            listBox.className ='list_box none_check'
         }
     });
     
