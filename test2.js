@@ -1,9 +1,18 @@
 const listInput = document.getElementById('todoInput');    
 
 let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
-/** 더블클릭 시 리스트 수정해주는 함수 */
-function listChange(){
-    console.log('gg')
+
+/** 각 상태 버튼을 눌렀을 때의 함수 */
+function listPopup(e){
+    const listBtn = document.querySelectorAll('.list_button');
+    const type = e.innerText;
+    for(let i = 0; i <listBtn.length; i++){
+        listBtn[i].classList.remove('button_active');
+    }
+    e.classList.add('button_active');
+
+    
+
 }
 /** 완료된 할 일 지우는 함수 */
 function listClear(){
@@ -84,17 +93,30 @@ function getTodo(){
 /** 리스트 추가&받아올 시 함수 */
 function paintTodo(todoValue, todoId, todoChecked){
     const todoBox = document.querySelector('.todo_box');
-
+    
     const listBox = document.createElement('div');
     listBox.setAttribute('class', 'list_box');
     listBox.setAttribute('id', todoId);
-    listBox.addEventListener('dblclick', listChange);
+    listBox.addEventListener('dblclick', function(){
+        listName.disabled = false;
+    });
 
     const listName = document.createElement('input');
     listName.setAttribute('type', 'text');
     listName.setAttribute('class', `${todoId} list_name `);
     listName.value = todoValue;
     listName.disabled = true;
+    listName.addEventListener('blur', function(e){
+        todoValue = e.target.value;
+        toDos.map((toDo) => {
+            if(toDo.id == todoId)
+            toDo.value = todoValue
+        });
+        // toDo.id 값이 없으면 현재 무엇을 변경했는지 알 수가 없어 모든 리스트가 변경된다.
+        // 따라서 id 값이 있어야 지금 변경한게 무엇인지 알 수 있다.
+        // toDos.map((toDo) => toDo.value = todoValue);
+        localStorage.setItem("TODOS", JSON.stringify(toDos));
+    });
 
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');

@@ -152,7 +152,7 @@ function getTodo() {
         const ListDel = document.createElement("button");
         ListDel.setAttribute("class", "list_delete");
         ListDel.setAttribute("type", "button");
-        ListDel.innerText = ":x:";
+        ListDel.innerText = "❌";
         ListDel.addEventListener("click", () => delTodo(toDo.id));
 
         todoBox.appendChild(todoList);
