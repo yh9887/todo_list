@@ -21,6 +21,7 @@ function listAllCheck(todoId,todoChecked,todoListBox, checkBox){
     if (checkbox.checked) {
         // todo의 체크 상태가 true이면 input checkbox를 체크된 상태로 설정
         checkBox.setAttribute("checked", true);
+        // todo의 체크 상태가 true이면 list_box에 클래스를 추가, 삭제
         todoListBox.classList.add('active_check');
         todoListBox.classList.remove('none_check');
     }
@@ -33,7 +34,6 @@ function listAllCheck(todoId,todoChecked,todoListBox, checkBox){
     localStorage.setItem("TODOS", JSON.stringify(toDos))
 }
 function listChange(todoId, todoInputValue){
-    console.log("ggg")
     toDos.map((toDo) => {
         if(toDo.id == todoId)
         toDo.value = todoInputValue
@@ -42,7 +42,7 @@ function listChange(todoId, todoInputValue){
 }
 function listClearBtn(){ 
         // 체크가 되지 않은 것만 새로운 배열에 담음
-        // 여기서 왜 map안되는지?
+        // 여기서 왜 map안되는지? > 아래와 같이 하면 됨.
         // let newTodo = [];
         // toDos.map((toDo)=>{
         //     if(toDo.status === false){
