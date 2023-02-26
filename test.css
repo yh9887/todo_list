@@ -118,13 +118,14 @@ button {
     box-sizing: border-box;
     border-radius: 10px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .button_active {
     border: 2px solid #bfb5d0;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -147,10 +148,28 @@ button {
     justify-content: space-evenly;
     align-items: center;
 }
-.list_clear{cursor: pointer;}
+
+.list_clear {
+    cursor: pointer;
+}
+
 /* #todoInput {
   font-weight: 600;
   width: 380px;
   box-sizing: border-box;
   text-align: left;
 } */
+
+@media (max-width: 480px){
+    .wrap {
+        width: 100vw !important;
+        background-color: #f9f9f9;
+        margin:0;
+        text-align: center;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    .todo_box {
+        width: auto;
+    }
+}

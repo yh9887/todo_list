@@ -5,7 +5,7 @@ let toDos = JSON.parse(localStorage.getItem("TODOS")) || [];
 /** 각 상태 버튼을 눌렀을 때의 함수 */
 function listPopup(e){
     const listBtn = document.querySelectorAll('.list_button');
-    const type = e.innerText;
+    const type = e.value;
     const activeCheck = document.querySelectorAll('.active_check');
     const noneCheck = document.querySelectorAll('.none_check');
 
@@ -60,6 +60,7 @@ function allCheck(e){
     toDos.map((toDo)=>{
         toDo.status = e.checked;
         document.getElementById(toDo.id).checked = e.checked;
+        // all 체크 시 name_active 화면에서 넣어주고 빼기
         if (toDo.status) {
             document.getElementsByClassName(toDo.id)[0].className = `${toDo.id} list_name name_active`;
         } else {
@@ -80,12 +81,13 @@ function delTodo(e){
         toDo.id !==  parseInt(delTarget.id) 
     )
     localStorage.setItem("TODOS", JSON.stringify(toDos));
-
+    document.querySelector('.list_count').innerText = `${toDos.length} items left`;
 };
 /** 리스트 추가 시 함수 */
 function addTodo(){
     // 삭제,상태를 알기 위해 리스트마다 아이디 주기위함
     const randID = Math.floor(Math.random()*999999)
+    const listBtn = document.querySelectorAll('.list_button');
     if(listInput.value.length>0){
         let todoChecked = false;
         toDos.push({
@@ -95,6 +97,7 @@ function addTodo(){
         });
         paintTodo(listInput.value, randID, todoChecked);
     }   
+
     listInput.value=""
     localStorage.setItem("TODOS", JSON.stringify(toDos));
 };
