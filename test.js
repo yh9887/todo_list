@@ -1,4 +1,4 @@
-let todoInput = document.getElementById('todoInput').value;
+let todoInput = document.getElementById('todoInput');
 const todoList = document.querySelector('.todo_list');
 
 
@@ -66,6 +66,10 @@ function listClearBtn(){
 
         const listCount = document.querySelector('.list_count');
         listCount.innerText = `${toDos.length} items left`;
+        const allcheckbox = document.querySelector('#allCheckBox');
+        if(allcheckbox.checked){
+            allcheckbox.checked = false;
+        }
 }
 function listCheckBtn(type) {
     const allBtn = document.getElementById('All')
