@@ -1,4 +1,4 @@
-const todoInput = document.getElementById('todoInput').value;
+let todoInput = document.getElementById('todoInput').value;
 const todoList = document.querySelector('.todo_list');
 
 
