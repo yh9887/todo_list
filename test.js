@@ -150,6 +150,7 @@ function addTodo() {
         paintTodo(todoInput.value, todoId, todoChecked);
     }
     todoInput.value = "";
+    console.log(todoInput.value)
 }
 function getTodo() {
     // 리스트가 하나라도 있으면 isChecked를 true로 바꿔준다.
