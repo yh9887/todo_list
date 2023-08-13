@@ -111,7 +111,7 @@ button {
   display: flex;
   justify-content: space-between;
 } */
-.footer_button_box>button {
+.list_button{
     border: 2px solid #eeeeee;
     padding: 5px 10px;
     box-sizing: border-box;
@@ -119,7 +119,7 @@ button {
     font-weight: 600;
 }
 
-#active_button {
+.button_active {
     border: 2px solid #bfb5d0;
 }
 

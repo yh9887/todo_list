@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todolist</title>
     <link rel="stylesheet" href="index.css" />
-    <script defer src="index2.js"></script>
+    <script defer src="index.js"></script>
 </head>
 
 <body>
@@ -25,13 +25,9 @@
         <div class="footer">
             <div class="count">0 items left</div>
             <div class="footer_button_box">
-                <button id="active_button" type="button" onclick="countHandler('All')">
-                    All
-                </button>
-                <button type="button" onclick="countHandler('Active')">Active</button>
-                <button type="button" onclick="countHandler('Completed')">
-                    Completed
-                </button>
+                <button class="list_button button_active"id="All" type="button" onclick="listCheckBtn('All'), countHandler('All')">All</button>
+                <button class="list_button"id="Active"type="button" onclick="listCheckBtn('Active'), countHandler('Active')">Active</button>
+                <button class="list_button"id="Completed"type="button" onclick="listCheckBtn('Completed'), countHandler('Completed')">Completed</button>
             </div>
             <div class="clear_button" onclick="clearHandler()">Clear Completed</div>
         </div>

@@ -95,7 +95,7 @@ function addTodo() {
     // 위에서 생성한 button태그의 class명을 list_delete으로 설정
     ListDel.setAttribute("class", "list_delete");
     // 위에서 생성한 button 태그에 :x: 텍스트를 넣어줌
-    ListDel.innerText = ":x:";
+    ListDel.innerText = "❌";
     // 위에서 생성한 button 태그에 클릭 이벤트를 넣어주고 클릭 시 delTodo 함수가 실행되게 함(매개변수로 랜덤으로 생성한 id를 넘겨줌)
     ListDel.addEventListener("click", () => delTodo(id));
     // 전체 todo를 감싸고 있는 todoContainer 앞에 todoBox를 넣어줌
@@ -215,7 +215,7 @@ function getTodo() {
     // 위에서 생성한 button의 class명을 list_delete로 설정
     ListDel.setAttribute("class", "list_delete");
     // 위에서 생성한 button의 문구를 :x:로 설정
-    ListDel.innerText = ":x:";
+    ListDel.innerText = "❌";
     // 위에서 생성한 button을 클릭하면 delTodo(todo를 화면에서 지우고 저장하는 함수)를 호출
     ListDel.addEventListener("click", () => delTodo(todo.id));
     // todoContainer(모든 todo를 감싸고 있는 요소) 하위에 todoBox(하나의 todo를 감싸고 있는 요소)를 넣어줌
