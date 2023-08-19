@@ -14,6 +14,7 @@ function todoUpdateHandler(todoId, todoValue) {
 function todoUnDisabledHandler(toDoId) {
     const todoValueElement = document.getElementsByClassName(toDoId)[0];
     todoValueElement.disabled = false;
+    console.log("ddd")
 }
 
 function addTodo() {
@@ -82,7 +83,6 @@ function listCheckBtn(type) {
     activeBtn.classList.remove(BUTTON_ACTIVE);
     comBtn.classList.remove(BUTTON_ACTIVE);
     if (type == "All") {
-        console.log('allll')
         allBtn.classList.add(BUTTON_ACTIVE);
     } else if (type == "Active") {
         activeBtn.classList.add(BUTTON_ACTIVE);
@@ -91,12 +91,9 @@ function listCheckBtn(type) {
         comBtn.classList.add(BUTTON_ACTIVE);
         // document.getElementById('allCheckBox').checked = true;
     }
-    todoArr = type == "All" ? todos : todos.filter((toDo) => { 
-        if(type == "Completed") { 
-            return toDo.status === true 
-        } else if(type == "Active"){
-            return toDo.status === false
-        }});
+    todoArr = type == "All" ? todos : todos.filter((todo) => { 
+        if(type == "Completed") { return todo.status === true } 
+        else if(type == "Active"){ return todo.status === false}});
         
     for ( let i = 0; i < nameNone.length; i++ ) {
         if(type == "All" || type == "Active") nameNone[i].style.display = 'flex';
@@ -193,6 +190,7 @@ function countHandler(type) {
 }
 function clearHandler() {
     const newTodos = todos.filter((todo) => todo.status == false);
+    const allCheckBoxValue = document.getElementById("all_check_box");
     todos.forEach((todo) => {
         if (todo.status) {
             const todoBoxElement = document.getElementById("todo_box" + todo.id);
@@ -201,6 +199,7 @@ function clearHandler() {
     });
     todos = newTodos;
     localStorage.setItem("TODOS", JSON.stringify(newTodos));
+    allCheckBoxValue.checked= false;
 }
 
 function allCheckHandler() {
