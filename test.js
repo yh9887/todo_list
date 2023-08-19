@@ -1,4 +1,4 @@
-const todoInput = document.getElementById('todoInput');
+let todoInput = document.getElementById('todoInput');
 const todoList = document.querySelector('.todo_list');
 
 
@@ -66,6 +66,10 @@ function listClearBtn(){
 
         const listCount = document.querySelector('.list_count');
         listCount.innerText = `${toDos.length} items left`;
+        const allcheckbox = document.querySelector('#allCheckBox');
+        if(allcheckbox.checked){
+            allcheckbox.checked = false;
+        }
 }
 function listCheckBtn(type) {
     const allBtn = document.getElementById('All')
@@ -146,6 +150,7 @@ function addTodo() {
         paintTodo(todoInput.value, todoId, todoChecked);
     }
     todoInput.value = "";
+    console.log(todoInput.value)
 }
 function getTodo() {
     // 리스트가 하나라도 있으면 isChecked를 true로 바꿔준다.

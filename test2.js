@@ -96,7 +96,7 @@ function addTodo(){
             status: todoChecked
         });
         paintTodo(listInput.value, randID, todoChecked);
-    }   
+    };
 
     listInput.value=""
     localStorage.setItem("TODOS", JSON.stringify(toDos));
@@ -190,3 +190,4 @@ function paintTodo(todoValue, todoId, todoChecked){
 };
 /** 새로고침 시 getTodo 함수를 먼저 실행하여 리스트 여부를 통해 아이템을 받아올지 말지 판단 */
 if(toDos.length > 0) getTodo();
+console.log("🚀 ~ file: test2.js:193 ~ toDos.length:", toDos.length)

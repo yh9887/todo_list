@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todolist</title>
+    <link rel="stylesheet" href="test.css" />
+    <script defer src="test3.js"></script>
+</head>
+
+<body>
+    <form class="wrap" onsubmit="return false;">
+        <div class="todo_title">todos</div>
+
+        <div class="todo_box">
+            <div class="input_box">
+                <input type="checkbox" id="allCheckBox" class="check_box" name="check" onclick="allCheck(this)" >
+                <input type="text" placeholder="할 일을 입력해주세요." id="todoInput" minlength="1" onkeyup="if (window.event.keyCode == 13){addTodo()}">
+                <button type="button"  onclick="addTodo()">✔️</button>
+            </div>
+            <!-- <div class="list_box">
+                <input type="checkbox" class="check_box">
+                <input type="text" class="list_name">
+                <button>❌</button>
+            </div> -->
+        </div>
+        <div class="list_menu">
+            <div class="list_count">0 items left</div>
+            <div >
+                <input class="list_button button_active" id="All" type="button"value="All">
+                <input class="list_button" id="Active" type="button"value="Active">
+                <input class="list_button" id="Completed" type="button"value="Completed">
+            </div>
+            <div class="list_clear" >Clear Completed</div>
+        </div>
+        <p class="todo_info">더블클릭 시 수정 가능!</p>
+    </form>
+</body>
+
+</html>
